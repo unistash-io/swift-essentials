@@ -14,8 +14,8 @@ public extension RangeReplaceableCollection where Element: HexadecimalStringConv
 
 public extension RangeReplaceableCollection where Element: ExpressibleByHexadecimalString {
     init?(hexadecimalString: String) {
-        let elementBytesCount = MemoryLayout<Element>.size
-        guard hexadecimalString.count.isMultiple(of: elementBytesCount)
+        let elementCharacterCount = MemoryLayout<Element>.size * 2
+        guard hexadecimalString.count.isMultiple(of: elementCharacterCount)
         else {
             return nil
         }
@@ -23,12 +23,12 @@ public extension RangeReplaceableCollection where Element: ExpressibleByHexadeci
         let elements = stride(
             from: 0,
             to: hexadecimalString.count,
-            by: elementBytesCount
+            by: elementCharacterCount
         ).compactMap({
-            Element(hexadecimalString: String(hexadecimalString[$0 ..< $0 + elementBytesCount]))
+            Element(hexadecimalString: String(hexadecimalString[$0 ..< $0 + elementCharacterCount]))
         })
 
-        guard elements.count == hexadecimalString.count / elementBytesCount
+        guard elements.count == hexadecimalString.count / elementCharacterCount
         else {
             return nil
         }
