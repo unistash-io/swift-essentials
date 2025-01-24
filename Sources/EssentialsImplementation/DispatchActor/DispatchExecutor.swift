@@ -4,6 +4,7 @@
 
 // MARK: - DispatchExecutor
 
+@available(iOS 13, macOS 10.15, tvOS 13, watchOS 6, *)
 final class DispatchExecutor: SerialExecutor {
     // MARK: Lifecycle
 

@@ -4,6 +4,7 @@
 
 // MARK: - DispatchActor
 
+@available(iOS 13, macOS 10.15, tvOS 13, watchOS 6, *)
 public final actor DispatchActor: Actor {
     // MARK: Lifecycle
 

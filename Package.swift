@@ -5,10 +5,6 @@ import PackageDescription
 
 let package = Package(
     name: "swift-essentials",
-    platforms: [
-        .macOS("13.3"),
-        .iOS("16.4"),
-    ],
     products: [
         .library(name: "Essentials", targets: ["Essentials"]),
         .library(name: "ReadableByteCollection", targets: ["ReadableByteCollection"]),
